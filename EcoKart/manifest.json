@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "EcoCart - Carbon Footprint Calculator",
+  "version": "1.0",
+  "description": "Calculates carbon footprint of products added to online shopping carts.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://www.amazon.in/*",
+        "*://www.flipkart.com/*",
+        "*://www.myntra.com/*"
+      ],
+      "js": ["content.js"]
+    }
+  ]
+}
